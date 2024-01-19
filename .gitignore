@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+
+# Dependency directories
+@babel/
+prisma/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+eslint-debug.log*
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
