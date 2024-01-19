@@ -3,7 +3,6 @@ node_modules/
 
 # Dependency directories
 @babel/
-prisma/
 
 # Logs
 logs/
