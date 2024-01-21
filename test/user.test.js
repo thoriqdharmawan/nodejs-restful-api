@@ -221,3 +221,38 @@ describe('PATCH /api/users/current', () => {
     expect(result.body.errors).toBeDefined();
   })
 })
+
+describe('DELETE /api/users/logout', () => {
+  beforeEach(async () => {
+    await createTestUser()
+  })
+
+  afterEach(async () => {
+    await removeTestUser()
+  })
+
+  it('should can logout user', async () => {
+    const result = await supertest(web)
+      .delete('/api/users/logout')
+      .set('Authorization', 'test')
+      .send({
+        username: 'test'
+      })
+
+    expect(result.status).toBe(200)
+
+    const user = await getTestUser()
+    expect(user.token).toBeNull()
+  })
+
+  it('should reject logout if token is invalid', async () => {
+    const result = await supertest(web)
+      .delete('/api/users/logout')
+      .set('Authorization', 'salah')
+      .send({
+        username: 'test'
+      })
+
+    expect(result.status).toBe(401)
+  })
+})
