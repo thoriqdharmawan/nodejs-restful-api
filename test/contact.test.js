@@ -74,4 +74,15 @@ describe('GET /api/contact/:contactId', () => {
     expect(result.body.data.phone).toBe(testContact.phone);
   });
 
+  it('should return 404 if contact is not found', async () => {
+    const testContact = await getTestContact();
+
+    const result = await supertest(web)
+      .get("/api/contacts/" + testContact.id + 1)
+      .set('Authorization', 'test');
+
+    expect(result.status).toBe(404);
+    expect(result.body.errors).toBeDefined()
+  });
+
 })
