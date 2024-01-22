@@ -5,7 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "test": "jest -i",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest -i --coverage"
   },
   "jest": {
     "transform": {
