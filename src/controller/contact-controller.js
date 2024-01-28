@@ -54,9 +54,31 @@ const remove = async (req, res, next) => {
   }
 }
 
+const search = async (req, res, next) => {
+  try {
+    const request = {
+      name: req.query.name,
+      email: req.query.email,
+      phone: req.query.phone,
+      page: req.query.page,
+      size: req.query.size,
+    }
+
+    const result = await contactService.search(req.user, request);
+
+    res.status(200).json({
+      data: result.data,
+      paging: result.paging
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
 export default {
   create,
   get,
   update,
   remove,
+  search,
 }
