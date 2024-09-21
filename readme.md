@@ -1,4 +1,4 @@
-# Belajar NodeJS Restful API
+# NodeJS Restful API
 
 This is a RESTful API built with Node.js and Express that demonstrates user and contact management.
 
